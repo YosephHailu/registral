@@ -117,9 +117,9 @@
 	class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
 	<!-- begin:: Page -->
 	<div class="m-grid m-grid--hor m-grid--root m-page">
-		<div class="m-login m-login--singin  m-login--5" id="m_login"
+		<div class="m-login m-login--singin  m-login--5 m-0 p-0" id="m_login"
 			style="background-image: url(assets/app/media/img//bg/bg-3.jpg);">
-			<div class="m-login__wrapper-1 m-portlet-full-height">
+			<div class="m-login__wrapper-1 pt-4 m-portlet-full-height">
 				<div class="m-login__wrapper-1-1">
 					<div class="m-login__contanier">
 						<div class="m-login__content">
@@ -148,7 +148,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="m-login__wrapper-2 m-portlet-full-height">
+			<div class="m-login__wrapper-2 pt-2 m-portlet-full-height pb-5">
 				<div class="m-login__contanier">
 					<div>
 						{{-- @include('layouts.messages') --}}

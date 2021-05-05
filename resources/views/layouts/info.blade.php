@@ -12,7 +12,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!--begin::Web font -->
-	<script src="https://cdn.bootcss.com/webfont/1.6.16/webfontloader.js')}}"></script>
+	<script src="https://cdn.bootcss.com/webfont/1.6.16/webfontloader.js"></script>
 	<script>
 		WebFont.load({
 			google: {
@@ -26,13 +26,12 @@
 	<!--end::Web font -->
 	<!--begin::Base Styles -->
 	<!--begin::Page Vendors -->
-	<link href="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')}}" rel="stylesheet"
-		type="text/css" />
+	<link href="assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
 	<!--end::Page Vendors -->
-	<link href="{{asset('assets/vendors/base/vendors.bundle.css')}}" rel="stylesheet" type="text/css" />
-	<link href="{{asset('assets/demo/demo5/base/style.bundle.css')}}" rel="stylesheet" type="text/css" />
+	<link href="assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="assets/demo/demo5/base/style.bundle.css" rel="stylesheet" type="text/css" />
 	<!--end::Base Styles -->
-	<link rel="shortcut icon" href="{{asset('assets/demo/demo5/media/img/logo/favicon.ico')}}" />
+	<link rel="shortcut icon" href="assets/demo/demo5/media/img/logo/favicon.ico" />
 </head>
 <!-- end::Head -->
 <!-- end::Body -->
@@ -43,11 +42,12 @@
 		<!-- begin::Header -->
 		<header class="m-grid__item		m-header ">
 			<div class="m-header__bottom">
-				<div class="m-container m-container--responsive m-container m-container--full-height m-page__container">
+				<div
+					class="m-container m-container--responsive m-container m-container--full-height m-page__container">
 					<div class="m-stack m-stack--ver m-stack--desktop">
 						<div class="m-stack__item m-stack__item--middle m-brand__logo">
 							<a href="index.html" class="m-brand__logo-wrapper">
-								<img alt="" src="{{asset('assets/demo/demo5/media/img/logo/logo.png')}}" />
+								<img alt="" src="assets/demo/demo5/media/img/logo/logo.png" />
 							</a>
 						</div>
 						<!-- begin::Horizontal Menu -->
@@ -57,7 +57,8 @@
 								id="m_aside_header_menu_mobile_close_btn">
 								<i class="la la-close"></i>
 							</button>
-							<div id="m_header_menu" class="m-header-menu mx-auto m-aside-header-menu-mobile  m-header-menu--skin-dark m-header-menu--submenu-skin-dark m-aside-header-menu-mobile--skin
+							<div id="m_header_menu"
+								class="m-header-menu mx-auto m-aside-header-menu-mobile  m-header-menu--skin-dark m-header-menu--submenu-skin-dark m-aside-header-menu-mobile--skin
  ">
 								<ul class="m-menu__nav  m-menu__nav--submenu-arrow">
 									<li class="m-menu__item  m-menu__item" aria-haspopup="true">
@@ -68,21 +69,27 @@
 											</span>
 										</a>
 									</li>
-									<li class="m-menu__item  m-menu__item--{{ (Request::is('*my-dormitory*') ?'active' :'')}}"
-										aria-haspopup="true">
+									<li class="m-menu__item  m-menu__item--{{ (Request::is('*my-dormitory*') ?'active' :'')}}" aria-haspopup="true">
 										<a href="{{route('myDormitory')}}" class="m-menu__link ">
 											<span class="m-menu__item-here"></span>
 											<span class="m-menu__link-text">
-												My Grade
+												My Dormitory
 											</span>
 										</a>
 									</li>
-									<li class="m-menu__item  m-menu__item--{{ (Request::is('*personal-information-registration*') ?'active' :'')}}"
-										aria-haspopup="true">
-										<a href="{{route('personalInfo.create')}}" class="m-menu__link ">
+									<li class="m-menu__item  m-menu__item--{{ (Request::is('*my-section*') ?'active' :'')}}" aria-haspopup="true">
+										<a href="{{route('mySection')}}" class="m-menu__link ">
 											<span class="m-menu__item-here"></span>
 											<span class="m-menu__link-text">
-												My Profile
+												My Section
+											</span>
+										</a>
+									</li>
+									<li class="m-menu__item  m-menu__item--{{ (Request::is('*registration-orientation*') ?'active' :'')}}" aria-haspopup="true">
+										<a href="{{route('registrationOrientation')}}" class="m-menu__link ">
+											<span class="m-menu__item-here"></span>
+											<span class="m-menu__link-text">
+												Registration Procedure
 											</span>
 										</a>
 									</li>
@@ -134,22 +141,21 @@
 		</header>
 		<!-- end::Header -->
 
-		<div class="m-grid__item m-grid__item--fluid" style="padding-top: 100px">
+		<div class="m-grid__item m-grid__item--fluid" style="padding-top: 120px">
 			@yield('content')
 		</div>
 	</div>
 	<!-- end:: Page -->
 
 	<!--begin::Base Scripts -->
-	<script src="{{asset('assets/vendors/base/vendors.bundle.js')}}" type="text/javascript"></script>
-	<script src="{{asset('assets/demo/demo5/base/scripts.bundle.js')}}" type="text/javascript"></script>
+	<script src="assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
+	<script src="assets/demo/demo5/base/scripts.bundle.js" type="text/javascript"></script>
 	<!--end::Base Scripts -->
 	<!--begin::Page Vendors -->
-	<script src="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.js')}}" type="text/javascript">
-	</script>
+	<script src="assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
 	<!--end::Page Vendors -->
 	<!--begin::Page Snippets -->
-	<script src="{{asset('assets/app/js/dashboard.js')}}" type="text/javascript"></script>
+	<script src="assets/app/js/dashboard.js" type="text/javascript"></script>
 	<!--end::Page Snippets -->
 </body>
 <!-- end::Body -->
