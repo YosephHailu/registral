@@ -12,13 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 
 Route::get('login', [App\Http\Controllers\StudentAuthenticateController::class, 'showLoginForm'])->name('login');
 
 Route::get('personal-information-registration', [App\Http\Controllers\PageController::class, 'personalInfoRegistration'])->name('personalInfo.create');
 
+Route::prefix('student')->group(function () {
+    Route::get('grade-report', [App\Http\Controllers\PageController::class, 'gradeReport'])->name('grade.report');
+    Route::get('assessment-result', [App\Http\Controllers\PageController::class, 'assessmentResult'])->name('assessment.result');
+    Route::get('mother-information', [App\Http\Controllers\PageController::class, 'motherInformation'])->name('mother.information');
+    Route::get('education-information', [App\Http\Controllers\PageController::class, 'educationInformation'])->name('education.information');
+});
+
 Route::get('admin/dashboard', [App\Http\Controllers\PageController::class, 'adminDashboard'])->name('admin.dashboard');
+Route::get('home', [App\Http\Controllers\PageController::class, 'home'])->name('home');
 Route::get('/', [App\Http\Controllers\PageController::class, 'dashboard'])->name('dashboard');
 Route::get('staff-dashboard', [App\Http\Controllers\PageController::class, 'dashboard'])->name('dashboard');
 Route::get('staff/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('staff.login');

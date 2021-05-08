@@ -15,24 +15,19 @@
         <div class="m-portlet__body">
             <ul class="nav nav-tabs  m-tabs-line" role="tablist">
                 <li class="nav-item m-tabs__item">
-                    <a class="nav-link m-tabs__link active" data-toggle="tab" href="#personal_information_tab" role="tab">
+                    <a class="nav-link m-tabs__link {{ (Request::is('*personal-information-registration*') ?'active' :'')}}" href="{{ route('personalInfo.create') }}" role="tab">
                         Personal Information
                     </a>
                 </li>
                 <li class="nav-item m-tabs__item">
-                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#personal_information_tab" role="tab">
+                    <a class="nav-link m-tabs__link {{ (Request::is('*mother-information*') ?'active' :'')}}" href="{{ route('mother.information') }}" role="tab">
                         Mother Information
                     </a>
                 </li>
                 
                 <li class="nav-item m-tabs__item">
-                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#personal_information_tab" role="tab">
+                    <a class="nav-link m-tabs__link {{ (Request::is('*education-information*') ?'active' :'')}}" href="{{ route('education.information') }}" role="tab">
                         Education Background
-                    </a>
-                </li>
-                <li class="nav-item m-tabs__item">
-                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#personal_information_tab" role="tab">
-                        Contact Information
                     </a>
                 </li>
             </ul>

@@ -36,4 +36,24 @@ class PageController extends Controller
     function personalInfoRegistration() {
         return view('personalInfo.personalInfoRegistration');
     }
+    
+    function home() {
+        return view('student.home');
+    }
+    
+    function gradeReport() {
+        return view('student.gradeReport');
+    }
+    
+    function assessmentResult() {
+        return view('student.assessmentResult');
+    }
+    
+    function motherInformation() {
+        return view('personalInfo.motherInformation');
+    }
+    
+    function educationInformation() {
+        return view('personalInfo.educationInformation');
+    }
 }
