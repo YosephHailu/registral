@@ -9,7 +9,7 @@
     <div class="card col-lg-9 px-0">
         <div class="card">
             <div class="card-header header-elements-sm-inline  bg-greyish">
-                <h6 class="card-title">Grade Report</h6>
+                <h6 class="card-title">Courses</h6>
             </div>
 
             <div class="card-body d-md-flex align-items-md-center justify-content-md-between flex-md-wrap">
@@ -88,6 +88,7 @@
 
                         <tr>
                             <td class="text-center">2</td>
+                            <td>Computer Science</td>
                             <td>Advanced IT Security</td>
                             <td>ITSE-4092</td>
                             <td>3.75</td>
@@ -97,6 +98,7 @@
 
                         <tr>
                             <td class="text-center">3</td>
+                            <td>Information systems</td>
                             <td>Software Quality Assurance and Testing</td>
                             <td>ITSE-8557</td>
                             <td>3.00</td>
@@ -107,6 +109,7 @@
 
                         <tr>
                             <td class="text-center">4</td>
+                            <td>Computer Science</td>
                             <td>FPGA Programming</td>
                             <td>ITSE-5257</td>
                             <td>3.00</td>
