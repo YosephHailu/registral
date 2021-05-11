@@ -26,6 +26,12 @@ Route::prefix('student')->group(function () {
     Route::get('education-information', [App\Http\Controllers\PageController::class, 'educationInformation'])->name('education.information');
 });
 
+Route::prefix('courses')->group(function () {
+    Route::get('/', [App\Http\Controllers\PageController::class, 'courses'])->name('courses');
+    Route::get('add', [App\Http\Controllers\PageController::class, 'addCourse'])->name('add-course');
+});
+
+
 Route::get('admin/dashboard', [App\Http\Controllers\PageController::class, 'adminDashboard'])->name('admin.dashboard');
 Route::get('home', [App\Http\Controllers\PageController::class, 'home'])->name('home');
 Route::get('/', [App\Http\Controllers\PageController::class, 'dashboard'])->name('dashboard');

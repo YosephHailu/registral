@@ -56,4 +56,12 @@ class PageController extends Controller
     function educationInformation() {
         return view('personalInfo.educationInformation');
     }
+    
+    function courses() {
+        return view('Course.courses');
+    }
+
+    function addCourse() {
+        return view('course.addCourse');
+    }
 }

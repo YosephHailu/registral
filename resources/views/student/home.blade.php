@@ -13,10 +13,13 @@
             <i class="glyphicon glyphicon-print"></i> Grade &amp; Results
         </a>
         <a id="ml4" href="/Services/CateringInformation" class="list-group-item text-dark">
-            <i class="glyphicon glyphicon-folder-open"></i> Catering Information
+            <i class="glyphicon glyphicon-folder-open"></i> Course add/drop
         </a>
         <a id="ml15" href="/CoCurricular/CoCurricular" class="list-group-item text-dark">
-            <i class="glyphicon glyphicon-folder-open"></i> Cocurricular Activities
+            <i class="glyphicon glyphicon-folder-open"></i> Clearance request
+        </a>
+        <a id="ml15" href="/CoCurricular/CoCurricular" class="list-group-item text-dark">
+            <i class="glyphicon glyphicon-folder-open"></i> My profile
         </a>
         <a id="ml17" href="/Evaluation/StudentStaffEvaluation" class="list-group-item text-dark">
             <i class="glyphicon glyphicon-folder-open"></i> Staff Evaluation
