@@ -52,3 +52,17 @@ Route::post('student/logout', [App\Http\Controllers\StudentAuthenticateControlle
 Route::get('my-section', [App\Http\Controllers\PageController::class, 'mySection'])->name('mySection');
 Route::get('my-dormitory', [App\Http\Controllers\PageController::class, 'myDormitory'])->name('myDormitory');
 Route::get('registration-orientation', [App\Http\Controllers\PageController::class, 'registrationOrientation'])->name('registrationOrientation');
+
+
+//Department routes
+Route::resource('department', App\Http\Controllers\DepartmentController::class, ['names' => "department"]);
+
+//Stream routes
+Route::resource('stream', App\Http\Controllers\StreamController::class, ['names' => "stream"]);
+
+//Academic year
+Route::resource('academic-year', App\Http\Controllers\AcademicYearController::class, ['names' => "academic.year"]);
+Route::resource('semester', App\Http\Controllers\SemesterController::class, ['names' => "semester"]);
+Route::resource('course', App\Http\Controllers\CourseController::class, ['names' => "course"]);
+Route::resource('stream-course', App\Http\Controllers\StreamCourseController::class, ['names' => "stream.course"]);
+Route::resource('course', App\Http\Controllers\CourseController::class, ['names' => "course"]);
