@@ -52,6 +52,10 @@
                         Department / Year
                     </span>
                 </div>
+                <div class="m-widget4__info">
+                </div>
+                <div class="m-widget4__info">
+                </div>
                 <div class="m-widget4__progress">
 
                 </div>
@@ -85,7 +89,7 @@
 
                 </div>
                 <div class="m-widget4__ext row">
-                    <a href="{{ route('stream.edit', $stream->id) }}"
+                    <a href="{{ route('stream.show', $stream->id) }}"
                         class="m-btn m-btn--pill btn btn-sm btn-primary btn-block my-1">
                         Manage Courses
                     </a>

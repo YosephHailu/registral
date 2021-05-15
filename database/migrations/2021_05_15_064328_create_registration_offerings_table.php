@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStreamCoursesTable extends Migration
+class CreateRegistrationOfferingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateStreamCoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('stream_courses', function (Blueprint $table) {
-            $table->id();   
-            $table->float('credit_hour');
-            $table->boolean('is_major')->default(false);
-            $table->float('ects');
+        Schema::create('registration_offerings', function (Blueprint $table) {
+            $table->id();
+            $table->boolean('active')->default(false);
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->integer('year');
 
-            $table->foreignId('stream_id');
-            $table->foreignId('course_id');
+            $table->foreignId('academic_year_id');
             $table->foreignId('semester_id');
-
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class CreateStreamCoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stream_courses');
+        Schema::dropIfExists('registration_offerings');
     }
 }

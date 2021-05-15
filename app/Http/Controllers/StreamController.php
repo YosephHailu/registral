@@ -65,7 +65,7 @@ class StreamController extends Controller
      */
     public function show(Stream $stream)
     {
-        //
+        return view('stream.stream')->with('stream', $stream);
     }
 
     /**

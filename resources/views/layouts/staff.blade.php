@@ -35,35 +35,36 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Web font -->
     <!--begin::Base Styles -->
     <!--begin::Page Vendors -->
-    <link href="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')}}" rel="stylesheet"
+        type="text/css" />
     <!--end::Page Vendors -->
     <link href="{{asset('assets/vendors/base/vendors.bundle.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/demo/default/base/style.bundle.css')}}" rel="stylesheet" type="text/css" />
     <!--end::Base Styles -->
     <link rel="shortcut icon" href="{{asset('assets/demo/default/media/img/logo/favicon.ico')}}" />
-    
-	<style>
-		.bg-greyish {
-			background-color: #3D3B56 !important;
-			color: white !important;
-		}
 
-		.text-greyish {
-			color: #3D3B56;
-		}
+    <style>
+        .bg-greyish {
+            background-color: #3D3B56 !important;
+            color: white !important;
+        }
 
-		.bg-faded {
-			background-color: #DFF0D8;
-		}
+        .text-greyish {
+            color: #3D3B56;
+        }
 
-		.border-greyish {
-			border-color: #3D3B56 !important;
-		}
-        
-		.bg-white {
-			border-color: #ffffff !important;
-		}
-	</style>
+        .bg-faded {
+            background-color: #DFF0D8;
+        }
+
+        .border-greyish {
+            border-color: #3D3B56 !important;
+        }
+
+        .bg-white {
+            border-color: #ffffff !important;
+        }
+    </style>
 </head>
 <!-- end::Head -->
 <!-- end::Body -->
@@ -81,7 +82,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="m-stack m-stack--ver m-stack--general">
                             <div class="m-stack__item m-stack__item--middle m-brand__logo">
                                 <a href="index.html" class="m-brand__logo-wrapper">
-                                    <img alt="" src="{{asset('assets/demo/default/media/img/logo/logo_default_dark.png')}}" />
+                                    <img alt=""
+                                        src="{{asset('assets/demo/default/media/img/logo/logo_default_dark.png')}}" />
                                 </a>
                             </div>
                             <div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -796,6 +798,42 @@ License: You must have a valid license purchased only from themeforest(the above
                     data-menu-vertical="true" data-menu-scrollable="false" data-menu-dropdown-timeout="500">
                     <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
                         <li class="m-menu__item " aria-haspopup="true">
+                            <a href="{{ route('my.section') }}" class="m-menu__link ">
+                                <i class="m-menu__link-icon flaticon-file"></i>
+                                <span class="m-menu__link-text">
+                                    My sections
+                                </span>
+                            </a>
+                        </li>
+                        
+                        <li class="m-menu__item " aria-haspopup="true">
+                            <a href="{{ route('student.index') }}" class="m-menu__link ">
+                                <i class="m-menu__link-icon flaticon-file"></i>
+                                <span class="m-menu__link-text">
+                                    Students
+                                </span>
+                            </a>
+                        </li>
+                        
+                        <li class="m-menu__item " aria-haspopup="true">
+                            <a href="{{ route('teacher.section.index') }}" class="m-menu__link ">
+                                <i class="m-menu__link-icon flaticon-file"></i>
+                                <span class="m-menu__link-text">
+                                    Teacher section
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="m-menu__item " aria-haspopup="true">
+                            <a href="{{ route('registration.offering.index') }}" class="m-menu__link ">
+                                <i class="m-menu__link-icon flaticon-file"></i>
+                                <span class="m-menu__link-text">
+                                    Registration Offering
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="m-menu__item " aria-haspopup="true">
                             <a href="{{ route('department.index') }}" class="m-menu__link ">
                                 <i class="m-menu__link-icon flaticon-file"></i>
                                 <span class="m-menu__link-text">
@@ -803,7 +841,25 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </span>
                             </a>
                         </li>
-                        
+
+                        <li class="m-menu__item " aria-haspopup="true">
+                            <a href="{{ route('section.index') }}" class="m-menu__link ">
+                                <i class="m-menu__link-icon flaticon-file"></i>
+                                <span class="m-menu__link-text">
+                                    Manage Sections
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="m-menu__item " aria-haspopup="true">
+                            <a href="{{ route('grade.index') }}" class="m-menu__link ">
+                                <i class="m-menu__link-icon flaticon-file"></i>
+                                <span class="m-menu__link-text">
+                                    Manage Grades
+                                </span>
+                            </a>
+                        </li>
+
                         <li class="m-menu__item " aria-haspopup="true">
                             <a href="{{ route('stream.index') }}" class="m-menu__link ">
                                 <i class="m-menu__link-icon flaticon-file"></i>
@@ -821,7 +877,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </span>
                             </a>
                         </li>
-                        
+
                         <li class="m-menu__item " aria-haspopup="true">
                             <a href="{{ route('academic.year.index') }}" class="m-menu__link ">
                                 <i class="m-menu__link-icon flaticon-file"></i>
@@ -830,7 +886,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </span>
                             </a>
                         </li>
-                        
+
                         <li class="m-menu__item " aria-haspopup="true">
                             <a href="{{ route('semester.index') }}" class="m-menu__link ">
                                 <i class="m-menu__link-icon flaticon-file"></i>
@@ -1600,11 +1656,14 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="{{asset('assets/demo/default/base/scripts.bundle.js')}}" type="text/javascript"></script>
     <!--end::Base Scripts -->
     <!--begin::Page Vendors -->
-    <script src="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.js')}}" type="text/javascript">
+    </script>
     <!--end::Page Vendors -->
     <!--begin::Page Snippets -->
     <script src="{{asset('assets/app/js/dashboard.js')}}" type="text/javascript"></script>
     <!--end::Page Snippets -->
+
+    @yield('script')
 </body>
 <!-- end::Body -->
 

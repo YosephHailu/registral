@@ -5,19 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class StreamCourse extends Model
+class Section extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
+        'name',
         'stream_id',
-        'course_id',
-        'semester_id',
-        'credit_hour',
-        'ects',
+        'academic_year_id',
+        'coordinator_id',
     ];
+    
+    /**
+     * Get the user that owns the Appointment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function academicYear(): BelongsTo
+    {
+        return $this->belongsTo(AcademicYear::class);
+    }
+    
     /**
      * Get the user that owns the Appointment
      *
@@ -33,9 +43,9 @@ class StreamCourse extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function course(): BelongsTo
+    public function coordinator(): BelongsTo
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(User::class);
     }
     
     /**
@@ -43,9 +53,8 @@ class StreamCourse extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function semester(): BelongsTo
+    public function students(): HasMany
     {
-        return $this->belongsTo(Semester::class);
+        return $this->hasMany(Student::class);
     }
-    
 }

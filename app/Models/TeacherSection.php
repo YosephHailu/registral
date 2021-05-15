@@ -5,33 +5,36 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Stream extends Model
+class TeacherSection extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'department_id', 'total_year', 'coordinator'];
-
+    protected $fillable = [
+        'assigned_date',
+        'teacher_id',
+        'section_id',
+    ];
     
     /**
      * Get the user that owns the Appointment
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function department(): BelongsTo
+    public function teacher(): BelongsTo
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(User::class, 'teacher_id', 'id');
     }
+    
     
     /**
      * Get the user that owns the Appointment
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function streamCourse(): HasMany
+    public function section(): BelongsTo
     {
-        return $this->hasMany(StreamCourse::class);
+        return $this->belongsTo(Section::class);
     }
-
+    
 }

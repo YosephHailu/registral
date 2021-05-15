@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Stream;
 use App\Providers\RouteServiceProvider;
 use App\Models\Student;
 use Illuminate\Auth\Events\Registered;
@@ -40,7 +41,8 @@ class RegisterStudentController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $streams = Stream::all();
+        return view('auth.register')->with('streams', $streams);
     }
 
     /**
@@ -52,8 +54,8 @@ class RegisterStudentController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required'],
             'name' => ['required', 'string', 'max:255'],
+            'stream_id' => ['required', 'exists:streams,id'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:students'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -67,12 +69,17 @@ class RegisterStudentController extends Controller
      */
     protected function create(array $data)
     {
-        return Student::create([
+        $student = Student::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'identification_no' => $data['identification_no'],
+            'stream_id' => $data['stream_id'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $student->identification_no = sprintf('%05d', $student->id);
+        $student->save();
+
+        return $student;
     }
     
     /**
@@ -83,7 +90,6 @@ class RegisterStudentController extends Controller
      */
     public function register(Request $request)
     {
-        $request->request->add(['identification_no' => time()]);
         $this->validator($request->all())->validate();
 
         event(new Registered($student = $this->create($request->all())));

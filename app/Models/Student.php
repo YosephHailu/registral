@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -19,6 +20,7 @@ class Student extends Authenticatable
     protected $fillable = [
         'identification_no',
         'name',
+        'stream_id',
         'email',
         'password',
     ];
@@ -41,4 +43,14 @@ class Student extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the user that owns the Appointment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function stream(): BelongsTo
+    {
+        return $this->belongsTo(Stream::class);
+    }
 }

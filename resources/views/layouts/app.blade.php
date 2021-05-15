@@ -138,7 +138,7 @@
 												style="left: 68.5px;"></span>
 											<ul class="m-menu__subnav">
 												<li class="m-menu__item" data-redirect="true" aria-haspopup="true">
-													<a href="{{route('personalInfo.create')}}" class="m-menu__link ">
+													<a href="{{route('course.registration')}}" class="m-menu__link ">
 														<span class="m-menu__link-text text-muted">
 															Course Registration
 														</span>
