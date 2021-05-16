@@ -71,7 +71,7 @@
                             <th>Course</th>
                             <th>Credit hour</th>
                             <th>Ects</th>
-                            <th>Semester</th>
+                            <th>Semester / <small>year</small></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -82,7 +82,10 @@
                             <td>{{ $courseStream->course->name }}</td>
                             <td>{{ $courseStream->credit_hour }}</td>
                             <td>{{ $courseStream->ects }}</td>
-                            <td>{{ $courseStream->semester->name }}</td>
+                            <td>{{ $courseStream->semester->name }}
+                                <br>
+                                year : <small class="text-muted">{{ $courseStream->year }}</small>
+                            </td>
                             <td class="row">
 
                                 <a href="{{ route('stream.course.edit', $courseStream->id) }}"

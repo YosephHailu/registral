@@ -108,7 +108,7 @@
                     
                     <div class="col-lg-6">
                         <label>
-                            Academic year
+                            Coordinator
                         </label>
                         <select class="form-control select2" name="coordinator_id">
                             <option value="">

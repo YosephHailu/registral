@@ -3,13 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\AcademicYear;
+use App\Models\Grade;
 use App\Models\Section;
 use App\Models\Semester;
 use App\Models\Student;
+use App\Models\TeacherSection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:student')->only('gradeReport');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -105,12 +114,14 @@ class StudentController extends Controller
             'academic_year_id' => 'required|exists:academic_years,id',
             'semester_id' => 'required|exists:semesters,id',
             'section_id' => 'required|exists:sections,id',
+            'year' => 'required'
         ]);
 
         $student->status = true;
         $student->semester_id = $request->semester_id;
         $student->academic_year_id = $request->academic_year_id;
         $student->section_id = $request->section_id;
+        $student->year = $request->year;
         $student->save();
 
         return redirect('student')->with('success', 'Student status successfully changed');
@@ -125,5 +136,21 @@ class StudentController extends Controller
 
         return view('student.status')
             ->with(['sections' => $sections, 'student' => $student, 'academicYears' => $academicYears, 'semesters' => $semesters]);
+    }
+
+    //Change registration offering status
+    public function manageGrade(Student $student, TeacherSection $teacherSection)
+    {
+        return view('student.manage-grade')
+            ->with(['student' => $student, 'teacherSection' => $teacherSection]);
+    }
+
+    function gradeReport() {
+        $student = Auth::user();
+
+        $streamCourses = $student->stream->streamCourse->where('year', $student->year)->where('semester_id', $student->semester_id);
+        
+
+        return view('student.gradeReport')->with('streamCourses', $streamCourses);
     }
 }

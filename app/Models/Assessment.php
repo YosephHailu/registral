@@ -6,29 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class TeacherSection extends Model
+class Assessment extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'assigned_date',
-        'teacher_id',
+        'title',
+        'value',
+        'description',
         'section_id',
-        'course_id'
+        'course_id',
     ];
     
     /**
-     * Get the user that owns the Appointment
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function teacher(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'teacher_id', 'id');
-    }
-    
-    
-    /**
+     * 
      * Get the user that owns the Appointment
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -47,5 +38,4 @@ class TeacherSection extends Model
     {
         return $this->belongsTo(Course::class);
     }
-    
 }

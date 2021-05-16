@@ -5,9 +5,19 @@
     -
 </li>
 <li class="m-nav__item">
-    <a href="{{ route('stream.index') }}" class="m-nav__link">
+    <a href="{{ route('my.section') }}" class="m-nav__link">
         <span class="m-nav__link-text">
-            Sections
+            My Sections
+        </span>
+    </a>
+</li>
+<li class="m-nav__separator">
+    -
+</li>
+<li class="m-nav__item">
+    <a href="{{ route('section.student', $teacherSection->id) }}" class="m-nav__link">
+        <span class="m-nav__link-text">
+            {{ $teacherSection->section->name }}
         </span>
     </a>
 </li>
@@ -21,7 +31,7 @@
             <div class="m-portlet__head-caption">
                 <div class="m-portlet__head-title">
                     <h3 class="m-portlet__head-text text-white">
-                        MY STUDENTS
+                        {{ strtoupper($teacherSection->section->name) }} STUDENTS
                     </h3>
                 </div>
             </div>
@@ -30,7 +40,7 @@
                 <ul class="nav nav-pills nav-pills--brand m-nav-pills--align-right m-nav-pills--btn-pill m-nav-pills--btn-sm"
                     role="tablist">
                     <li class="nav-item m-tabs__item">
-                        <a class="nav-link m-tabs__link active" href="{{ route('stream.create') }}">
+                        <a class="nav-link m-tabs__link active" href="{{ route('assessment.create', $teacherSection->id) }}">
                             <i class="fa fa-plus"></i> ADD ASSESSMENT
                         </a>
                     </li>
@@ -58,7 +68,7 @@
                             <td>{{$student->name }}</td>
                             <td>{{$student->stream->title }}</td>
                             <td>
-                                <a href="{{ route('section.student', $student->id) }}"
+                                <a href="{{ route('manage.student.grade', [$student->id, $teacherSection->id]) }}"
                                     class="btn btn-primary col-8 btn-sm mx-1">Manage Grade</a>
                             </td>
                         </tr>

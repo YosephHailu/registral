@@ -95,7 +95,7 @@
                         </span>
                     </div>
                     
-                    <div class="col-lg-12">
+                    <div class="col-lg-8">
                         <label>
                             Section <span class="text-danger"> * </span> :
                         </label>
@@ -113,6 +113,17 @@
                         </select>
                         <span class="m-form__help">
                             e.g Select student section
+                        </span>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <label>
+                            Year <span class="text-danger"> * </span> :
+                        </label>
+                        <input type="number" class="form-control m-input" name="year"
+                            value="{{ old('year') }}" placeholder="Enter year">
+                        <span class="m-form__help">
+                            e.g Enter year
                         </span>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\TeacherSection;
@@ -57,8 +58,9 @@ class TeacherSectionController extends Controller
     {
         $sections = Section::all();
         $teachers = User::all();
+        $courses = Course::all();
         
-        return view('teacherSection.ce-teacher-section')->with(['sections' => $sections, 'teachers' => $teachers]);
+        return view('teacherSection.ce-teacher-section')->with(['courses' => $courses, 'sections' => $sections, 'teachers' => $teachers]);
     }
 
     /**
@@ -73,6 +75,7 @@ class TeacherSectionController extends Controller
         $validated = $request->validate([
             'section_id' => 'required|exists:sections,id',
             'teacher_id' => 'required|exists:users,id',
+            'course_id' => 'required|exists:courses,id',
         ]);
 
         $teacherSection = new TeacherSection();
@@ -105,8 +108,9 @@ class TeacherSectionController extends Controller
     {
         $sections = Section::all();
         $teachers = User::all();
+        $courses = Course::all();
         
-        return view('teacherSection.ce-teacher-section')->with(['sections' => $sections, 'teachers' => $teachers, 'teacherSection' => $teacherSection]);
+        return view('teacherSection.ce-teacher-section')->with(['courses' => $courses, 'sections' => $sections, 'teachers' => $teachers, 'teacherSection' => $teacherSection]);
     }
 
     /**
@@ -123,6 +127,7 @@ class TeacherSectionController extends Controller
         $validated = $request->validate([
             'section_id' => 'required|exists:sections,id',
             'teacher_id' => 'required|exists:users,id',
+            'course_id' => 'required|exists:courses,id',
         ]);
 
         $teacherSection->fill($validated);

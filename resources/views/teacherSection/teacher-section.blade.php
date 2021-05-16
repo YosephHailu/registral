@@ -21,7 +21,7 @@
             <div class="m-portlet__head-caption">
                 <div class="m-portlet__head-title">
                     <h3 class="m-portlet__head-text text-white">
-                        Section
+                        Teachers Section
                     </h3>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                     role="tablist">
                     <li class="nav-item m-tabs__item">
                         <a class="nav-link m-tabs__link active" href="{{ route('teacher.section.create') }}">
-                            <i class="fa fa-plus"></i> ADD SECTION
+                            <i class="fa fa-plus"></i> ASSIGN TO SECTION
                         </a>
                     </li>
                 </ul>
@@ -44,6 +44,7 @@
                     <thead class="bg-faded">
                         <tr>
                             <th style="width: 50px">#</th>
+                            <th style="min-width: 150px;">Courses</th>
                             <th style="min-width: 150px;">Teacher</th>
                             <th style="min-width: 150px;">Section</th>
                             <th class="text-center" style="min-width: 100px;"><i class="icon-arrow-down12"></i></th>
@@ -53,8 +54,9 @@
                         @foreach ($teacherSections as $teacherSection)
                         <tr>
                             <td class="text-center">{{$teacherSection->id}}</td>
-                            <td>{{$teacherSection->teacher->name }}</td>
-                            <td>{{$teacherSection->section->name }}</td>
+                            <td>{{$teacherSection->course->name ?? "" }}</td>
+                            <td>{{$teacherSection->teacher->name ?? "" }}</td>
+                            <td>{{$teacherSection->section->name ?? "" }}</td>
                             <td class="row"><a href="{{ route('teacher.section.edit', $teacherSection->id) }}" class="btn btn-primary btn-sm mx-1">Edit</a>
                                     <form class="p-0"
                                     action="{{ route('teacher.section.destroy', $teacherSection->id) }}"

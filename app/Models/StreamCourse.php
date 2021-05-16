@@ -17,6 +17,7 @@ class StreamCourse extends Model
         'semester_id',
         'credit_hour',
         'ects',
+        'year'
     ];
     /**
      * Get the user that owns the Appointment

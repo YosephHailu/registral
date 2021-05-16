@@ -48,6 +48,28 @@
 
             <div class="m-portlet__body">
                 <div class="form-group m-form__group row">
+                    
+                    <div class="col-lg-12">
+                        <label>
+                            Course <span class="text-danger"> * </span> :
+                        </label>
+                        <select class="form-control select2" name="course_id">
+                            <option value="">
+                                Select course
+                            </option>
+                            @foreach ($courses as $course)
+                            <option value="{{ $course->id }}"
+                                @isset($teacherSection){{ $teacherSection->course_id == $course->id ? 'selected' : '' }}@endisset
+                                {{ old('academic_year_id') == $course->id ? 'selected' : '' }}>
+                                {{ $course->name }}</option>
+                                
+                            @endforeach
+                        </select>
+                        <span class="m-form__help">
+                            e.g Select course
+                        </span>
+                    </div>
+                    
                     <div class="col-lg-6">
                         <label>
                             Teacher <span class="text-danger"> * </span> :

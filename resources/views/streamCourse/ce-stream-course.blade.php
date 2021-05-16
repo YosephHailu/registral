@@ -60,7 +60,7 @@
 
             <div class="m-portlet__body">
                 <div class="form-group m-form__group row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <label>
                             Course <span class="text-danger"> * </span> :
                         </label>
@@ -81,7 +81,7 @@
                         </span>
                     </div>
                     
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <label>
                             Semester <span class="text-danger"> * </span> :
                         </label>
@@ -99,6 +99,17 @@
                         </select>
                         <span class="m-form__help">
                             e.g Select semester
+                        </span>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <label>
+                            Year <span class="text-danger"> * </span> :
+                        </label>
+                        <input type="number" class="form-control m-input" name="year"
+                            value="{{ $streamCourse->year ?? old('year') }}" placeholder="Enter year">
+                        <span class="m-form__help">
+                            e.g Enter year
                         </span>
                     </div>
                 </div>

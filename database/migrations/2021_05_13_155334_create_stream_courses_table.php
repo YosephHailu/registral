@@ -18,6 +18,7 @@ class CreateStreamCoursesTable extends Migration
             $table->float('credit_hour');
             $table->boolean('is_major')->default(false);
             $table->float('ects');
+            $table->integer('year');
 
             $table->foreignId('stream_id');
             $table->foreignId('course_id');

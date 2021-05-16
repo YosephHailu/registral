@@ -47,6 +47,7 @@ class StreamCourseController extends Controller
             'course_id' => 'required|exists:courses,id',
             'semester_id' => 'required|exists:semesters,id',
             'credit_hour' => 'required',
+            'year' => 'required',
             'ects' => 'required',
         ]);
 
@@ -99,6 +100,7 @@ class StreamCourseController extends Controller
             'course_id' => 'required|exists:courses,id',
             'semester_id' => 'required|exists:semesters,id',
             'credit_hour' => 'required',
+            'year' => 'required',
             'ects' => 'required',
         ]);
         

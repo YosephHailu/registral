@@ -18,6 +18,7 @@ class CreateTeacherSectionsTable extends Migration
             $table->date('assigned_date');
             $table->unsignedBigInteger('teacher_id');
 
+            $table->foreignId('course_id')->constrained();
             $table->foreignId('section_id')->constrained();
             $table->foreign('teacher_id')->references('id')->on('users');
             

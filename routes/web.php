@@ -20,7 +20,7 @@ Route::get('login', [App\Http\Controllers\StudentAuthenticateController::class, 
 Route::get('personal-information-registration', [App\Http\Controllers\PageController::class, 'personalInfoRegistration'])->name('personalInfo.create');
 
 Route::prefix('student')->group(function () {
-    Route::get('grade-report', [App\Http\Controllers\PageController::class, 'gradeReport'])->name('grade.report');
+    Route::get('grade-report', [App\Http\Controllers\StudentController::class, 'gradeReport'])->name('grade.report');
     Route::get('assessment-result', [App\Http\Controllers\PageController::class, 'assessmentResult'])->name('assessment.result');
     Route::get('mother-information', [App\Http\Controllers\PageController::class, 'motherInformation'])->name('mother.information');
     Route::get('education-information', [App\Http\Controllers\PageController::class, 'educationInformation'])->name('education.information');
@@ -73,6 +73,7 @@ Route::get(
     [App\Http\Controllers\RegistrationOfferingController::class, 'changeStatus']
 )->name('change.registration.offering.status');
 Route::resource('student', App\Http\Controllers\StudentController::class, ['names' => "student"]);
+Route::get('student/{student}/{teacherSection}/manage-grade', [App\Http\Controllers\StudentController::class, 'manageGrade'])->name('manage.student.grade');
 
 Route::post('change-student-status/{student}', [App\Http\Controllers\StudentController::class, 'changeStatus'])
     ->name('student.status.form');
@@ -93,3 +94,11 @@ Route::resource('teacher-section', App\Http\Controllers\TeacherSectionController
 
 Route::get('my-sections', [App\Http\Controllers\TeacherSectionController::class, 'mySections'])->name('my.section');
 Route::get('section/{teacherSection}/students', [App\Http\Controllers\TeacherSectionController::class, 'sectionStudents'])->name('section.student');
+
+//Assessment routes
+Route::resource('assessment', App\Http\Controllers\AssessmentController::class, ['names' => "assessment"]);
+Route::get('assessment/{teacherSection}/create', [App\Http\Controllers\AssessmentController::class, 'create'])->name('assessment.create');
+
+
+//Student assessments
+Route::post('update-mark/{studentAssessment}', [App\Http\Controllers\StudentAssessmentController::class, 'updateMark'])->name('update-student-mark');
