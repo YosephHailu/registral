@@ -37,15 +37,15 @@
             <img src="{{asset('assets/app/media/img/users/300_11.jpg')}}" style="width: 100%; height: 250px" alt="">
         </div>
         <div class="col-md-8">
-            <h4 class="py-2">Name : <small class="text-muted">John doe</small> </h4>
-            <h4 class="py-2">ID No : <small class="text-muted">UID/2548/13</small> </h4>
-            <h4 class="py-2">Department : <small class="text-muted">Information technology and computer science</small>
+            <h4 class="py-2">Name : <small class="text-muted">{{ Auth::user()->name }}</small> </h4>
+            <h4 class="py-2">ID No : <small class="text-muted">{{ Auth::user()->identification_no }}</small> </h4>
+            <h4 class="py-2">Department : <small class="text-muted">{{ Auth::user()->stream->title }}</small>
             </h4>
             <div class="row px-3">
-                <h4 class="py-2 mr-5">Section : <small class="text-muted">1</small> </h4>
-                <h4 class="py-2 text-center">Year : <small class="text-muted">I</small> </h4>
+                <h4 class="py-2 mr-5">Section : <small class="text-muted">{{ Auth::user()->section->name ?? "Not admitted" }}</small> </h4>
+                <h4 class="py-2 text-center">Year : <small class="text-muted">{{ Auth::user()->year }}</small> </h4>
             </div>
-            <h4 class="py-2">Year of admission : <small class="text-muted">2013</small></h4>
+            <h4 class="py-2">Year of admission : <small class="text-muted">{{ Auth::user()->academicYear->academic_year ?? "Not admitted yet" }}</small></h4>
         </div>
     </div>
 </div>

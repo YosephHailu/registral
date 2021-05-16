@@ -37,82 +37,46 @@
                 </div>
             </div>
 
-            {{-- <div class="form-group m-form__group row">
-            <div class="col-lg-6">
-                <label>
-                    Academic Year <span class="text-danger"> * </span> :
-                </label>
+            <div class="form-group m-form__group row">
+                <div class="col-lg-6">
+                    <label>
+                        Course Name <span class="text-danger"> * </span> :
+                    </label>
+                    <input type="text" name="name" value="{{ $course->name ?? old('name') }}"
+                        class="form-control m-input" placeholder="Enter course name">
+                    <span class="m-form__help">
+                        Please enter course name
+                    </span>
+                </div>
+                <div class="col-lg-6">
+                    <label>
+                        Course Code <span class="text-danger"> * </span> :
+                    </label>
+                    <input type="text" name="code" value="{{ $course->code ?? old('code') }}"
+                        class="form-control m-input" placeholder="Enter course code">
+                    <span class="m-form__help">
+                        Please enter course code
+                    </span>
+                </div>
 
-                <select class="form-control" name="param">
-                    <option>
-                        Select year
-                    </option>
+                <div class="col-lg-12 mt-3">
+                    <label>
+                        Course Coordinator <span class="text-danger"> * </span> :
+                    </label>
+                    <select class="form-control select2" name="coordinator">
+                        @foreach ($coordinators as $operator)
+                        <option value="{{ $operator->name }}"
+                            @isset($course){{ $course->coordinator == $operator->name ? 'selected' : '' }}@endisset
+                            {{ old('coordinator') == $operator->name ? 'selected' : '' }}>
+                            {{ $operator->name }}</option>
 
-                    @foreach ($academicYears as $academicYear)
-                    <option value="{{ $academicYear->id }}">{{ $academicYear->academic_year }}</option>
-            @endforeach
-            </select>
-
-            <span class="m-form__help">
-                Please Academic year
-            </span>
-        </div>
-
-        <div class="col-lg-6">
-            <label>
-                Semester <span class="text-danger"> * </span> :
-            </label>
-
-            <select class="form-control" name="param">
-                <option>
-                    Select semester
-                </option>
-
-                @foreach ($semesters as $semester)
-                <option value="{{ $semester->id }}">{{ $semester->name }}</option>
-                @endforeach
-            </select>
-
-            <span class="m-form__help">
-                Please select the semester
-            </span>
-        </div>
-        </div> --}}
-
-
-        <div class="form-group m-form__group row">
-            <div class="col-lg-6">
-                <label>
-                    Course Name <span class="text-danger"> * </span> :
-                </label>
-                <input type="text" name="name" value="{{ $course->name ?? old('name') }}" class="form-control m-input"
-                    placeholder="Enter course name">
-                <span class="m-form__help">
-                    Please enter course name
-                </span>
+                        @endforeach
+                    </select>
+                    <span class="m-form__help">
+                        Please enter course coordinator
+                    </span>
+                </div>
             </div>
-            <div class="col-lg-6">
-                <label>
-                    Course Code <span class="text-danger"> * </span> :
-                </label>
-                <input type="text" name="code" value="{{ $course->code ?? old('code') }}" class="form-control m-input"
-                    placeholder="Enter course code">
-                <span class="m-form__help">
-                    Please enter course code
-                </span>
-            </div>
-
-            <div class="col-lg-12 mt-3">
-                <label>
-                    Course Coordinator <span class="text-danger"> * </span> :
-                </label>
-                <input type="text" class="form-control m-input" name="coordinator"
-                    value="{{ $course->coordinator ?? old('coordinator') }}" placeholder="Enter course coordinator">
-                <span class="m-form__help">
-                    Please enter course coordinator
-                </span>
-            </div>
-        </div>
 
         </div>
 

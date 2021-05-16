@@ -89,6 +89,8 @@ Route::post('course-registration', [App\Http\Controllers\CourseRegistrationContr
 
 Route::resource('grade', App\Http\Controllers\GradeController::class, ['names' => "grade"]);
 Route::resource('section', App\Http\Controllers\SectionController::class, ['names' => "section"]);
+Route::get('get-sections', [App\Http\Controllers\SectionController::class, 'sections'])->name('sections');
+
 Route::resource('student-course', App\Http\Controllers\StudentCourseController::class, ['names' => "student.course"]);
 Route::resource('teacher-section', App\Http\Controllers\TeacherSectionController::class, ['names' => "teacher.section"]);
 

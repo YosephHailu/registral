@@ -14,6 +14,16 @@ class StudentAuthenticateController extends Controller
     use RedirectsUsers, ThrottlesLogins;
 
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest:student')->except('logout');
+    }
+    
+    /**
      * Show the application's login form.
      *
      * @return \Illuminate\View\View

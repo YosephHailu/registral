@@ -22,6 +22,12 @@ class SectionController extends Controller
         return view('section.sections')->with('sections', $sections->get());
     }
 
+
+    public function sections(Request $request)
+    {
+        $teacherSections = Section::with('stream')->where('academic_year_id', $request->academic_year_id);
+        return $teacherSections->get();
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -101,7 +107,7 @@ class SectionController extends Controller
             'academic_year_id' => 'required|exists:academic_years,id',
             'stream_id' => 'required|exists:streams,id',
         ]);
-        
+
         $section->fill($validated);
 
         $section->save();

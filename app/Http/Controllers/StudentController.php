@@ -148,6 +148,9 @@ class StudentController extends Controller
     function gradeReport() {
         $student = Auth::user();
 
+        if(!$student->academic_year_id) {
+            return back()->with('error', "Your are not admitted to any field yet!!");
+        }
         $streamCourses = $student->stream->streamCourse->where('year', $student->year)->where('semester_id', $student->semester_id);
         
 

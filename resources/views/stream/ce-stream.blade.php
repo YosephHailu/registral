@@ -62,9 +62,15 @@
                         <label>
                             Coordinator <span class="text-danger"> * </span> :
                         </label>
-                        <input type="text" class="form-control m-input" name="coordinator"
-                            value="{{ $stream->coordinator ?? old('coordinator') }}"
-                            placeholder="Enter coordinator name">
+                        <select class="form-control select2" name="coordinator">
+                            @foreach ($coordinators as $operator)
+                            <option value="{{ $operator->name }}"
+                                @isset($stream){{ $stream->coordinator == $operator->name ? 'selected' : '' }}@endisset
+                                {{ old('coordinator') == $operator->name ? 'selected' : '' }}>
+                                {{ $operator->name }}</option>
+    
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>

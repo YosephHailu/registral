@@ -44,6 +44,7 @@
                     <thead class="bg-faded">
                         <tr>
                             <th style="width: 50px">#</th>
+                            <th style="min-width: 150px;">Stream</th>
                             <th style="min-width: 150px;">Courses</th>
                             <th style="min-width: 150px;">Teacher</th>
                             <th style="min-width: 150px;">Section</th>
@@ -54,9 +55,10 @@
                         @foreach ($teacherSections as $teacherSection)
                         <tr>
                             <td class="text-center">{{$teacherSection->id}}</td>
+                            <td>{{$teacherSection->section->stream->title ?? "" }}</td>
                             <td>{{$teacherSection->course->name ?? "" }}</td>
                             <td>{{$teacherSection->teacher->name ?? "" }}</td>
-                            <td>{{$teacherSection->section->name ?? "" }}</td>
+                            <td>{{$teacherSection->section->academicYear->academic_year . "/" . $teacherSection->section->name ?? "" }}</td>
                             <td class="row"><a href="{{ route('teacher.section.edit', $teacherSection->id) }}" class="btn btn-primary btn-sm mx-1">Edit</a>
                                     <form class="p-0"
                                     action="{{ route('teacher.section.destroy', $teacherSection->id) }}"

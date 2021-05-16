@@ -6,6 +6,7 @@ use App\Models\AcademicYear;
 use App\Models\Course;
 use App\Models\Department;
 use App\Models\Semester;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -32,8 +33,9 @@ class CourseController extends Controller
         // $academicYears = AcademicYear::all();
         // $semesters = Semester::all();
         $departments = Department::all();
+        $coordinators = User::all();
 
-        return view('course.ce-course')->with(['departments' => $departments]);
+        return view('course.ce-course')->with(['departments' => $departments, 'coordinators' => $coordinators]);
     }
 
     /**
@@ -80,8 +82,9 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         $departments = Department::all();
+        $coordinators = User::all();
 
-        return view('course.ce-course')->with(['course' => $course, 'departments' => $departments]);
+        return view('course.ce-course')->with(['course' => $course, 'departments' => $departments, 'coordinators' => $coordinators]);
     }
 
     /**

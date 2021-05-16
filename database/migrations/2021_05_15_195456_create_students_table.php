@@ -22,12 +22,13 @@ class CreateStudentsTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('status')->default(false);
-            $table->integer('year')->default(0);
+            $table->integer('year')->default(0);;
+            $table->unsignedBigInteger('section_id')->nullable();
 
+            $table->foreign('section_id')->references('id')->on('sections');
             $table->foreignId('stream_id');
             $table->foreignId('academic_year_id')->nullable();
             $table->foreignId('semester_id')->nullable();
-            $table->foreignId('section_id')->nullable()->constrained();
             $table->rememberToken();
             $table->timestamps();
         });

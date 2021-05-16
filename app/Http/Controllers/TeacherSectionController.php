@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AcademicYear;
 use App\Models\Course;
 use App\Models\Section;
 use App\Models\Student;
@@ -59,8 +60,10 @@ class TeacherSectionController extends Controller
         $sections = Section::all();
         $teachers = User::all();
         $courses = Course::all();
-        
-        return view('teacherSection.ce-teacher-section')->with(['courses' => $courses, 'sections' => $sections, 'teachers' => $teachers]);
+        $academicYears = AcademicYear::all();
+
+        return view('teacherSection.ce-teacher-section')
+            ->with(['academicYears' => $academicYears, 'courses' => $courses, 'sections' => $sections, 'teachers' => $teachers]);
     }
 
     /**
@@ -109,8 +112,9 @@ class TeacherSectionController extends Controller
         $sections = Section::all();
         $teachers = User::all();
         $courses = Course::all();
-        
-        return view('teacherSection.ce-teacher-section')->with(['courses' => $courses, 'sections' => $sections, 'teachers' => $teachers, 'teacherSection' => $teacherSection]);
+        $academicYears = AcademicYear::all();
+
+        return view('teacherSection.ce-teacher-section')->with(['academicYears' => $academicYears, 'courses' => $courses, 'sections' => $sections, 'teachers' => $teachers, 'teacherSection' => $teacherSection]);
     }
 
     /**
@@ -122,7 +126,7 @@ class TeacherSectionController extends Controller
      */
     public function update(Request $request, TeacherSection $teacherSection)
     {
-        
+
         //Validate request
         $validated = $request->validate([
             'section_id' => 'required|exists:sections,id',

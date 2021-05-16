@@ -48,12 +48,12 @@
 
             <div class="m-portlet__body">
                 <div class="form-group m-form__group row">
-                    
-                    <div class="col-lg-12">
+
+                    <div class="col-lg-6">
                         <label>
                             Course <span class="text-danger"> * </span> :
                         </label>
-                        <select class="form-control select2" name="course_id">
+                        <select class="form-control  m-select2" name="course_id">
                             <option value="">
                                 Select course
                             </option>
@@ -62,19 +62,19 @@
                                 @isset($teacherSection){{ $teacherSection->course_id == $course->id ? 'selected' : '' }}@endisset
                                 {{ old('academic_year_id') == $course->id ? 'selected' : '' }}>
                                 {{ $course->name }}</option>
-                                
+
                             @endforeach
                         </select>
                         <span class="m-form__help">
                             e.g Select course
                         </span>
                     </div>
-                    
+
                     <div class="col-lg-6">
                         <label>
                             Teacher <span class="text-danger"> * </span> :
                         </label>
-                        <select class="form-control select2" name="teacher_id">
+                        <select class="form-control  m-select2" name="teacher_id">
                             <option value="">
                                 Select teacher
                             </option>
@@ -89,29 +89,41 @@
                         <span class="m-form__help">
                             e.g Select teacher
                         </span>
-                    </div>  
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>
+                            Academic year <span class="text-danger"> * </span> :
+                        </label>
+                        <select class="form-control  m-select2" name="teacher_id" id="academicYear">
+                            <option value="">
+                                Select academic year
+                            </option>
+                            @foreach ($academicYears as $academicYear)
+                            <option value="{{ $academicYear->id }}">
+                                {{ $academicYear->academic_year }}</option>
+
+                            @endforeach
+                        </select>
+                        <span class="m-form__help">
+                            e.g Select academic year
+                        </span>
+                    </div>
 
                     <div class="col-lg-6">
                         <label>
                             Section <span class="text-danger"> * </span> :
                         </label>
-                        <select class="form-control select2" name="section_id">
+                        <select class="form-control m-select2" name="section_id" id="sectionSelect">
                             <option value="">
-                                Select section
+                                Select academic year first
                             </option>
-                            @foreach ($sections as $section)
-                            <option value="{{ $section->id }}"
-                                @isset($teacherSection){{ $teacherSection->section_id == $section->id ? 'selected' : '' }}@endisset
-                                {{ old('academic_year_id') == $section->id ? 'selected' : '' }}>
-                                {{ $section->name }}</option>
-                                
-                            @endforeach
                         </select>
                         <span class="m-form__help">
                             e.g Select section
                         </span>
                     </div>
-                    
+
                 </div>
             </div>
             <!--end::Form-->
@@ -135,4 +147,22 @@
         </div>
     </form>
 
+    @endsection
+
+    @section('script')
+    <script>
+        $('.m-select2').select2();
+
+        $('#academicYear').on('change', function () {
+            $.get('{{ url("get-sections") }}?academic_year_id=' + this.value,
+            function(response) {
+                $('#sectionSelect').empty();
+                response.forEach(section => {
+                    options = `<option value="${section.id}">${section.stream.title} / ${section.name}</option>`;
+                    $('#sectionSelect').append(options);
+                });
+                $('#sectionSelect').select2();
+            });
+        });
+    </script>
     @endsection

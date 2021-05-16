@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
@@ -28,7 +29,9 @@ class DepartmentController extends Controller
     public function create()
     {
         //
-        return view('department.ce-department');
+        $coordinators = User::all();
+
+        return view('department.ce-department')->with('coordinators', $coordinators);
     }
 
     /**
@@ -73,7 +76,9 @@ class DepartmentController extends Controller
     public function edit(Department $department)
     {
         //
-        return view('department.ce-department')->with('department', $department);
+        $coordinators = User::all();
+
+        return view('department.ce-department')->with('department', $department)->with('coordinators', $coordinators);
     }
 
     /**

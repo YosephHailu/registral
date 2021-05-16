@@ -219,14 +219,14 @@
 								data-dropdown-toggle="click">
 								<a href="#" class="m-nav__link m-dropdown__toggle px-2">
 									<span class="m-topbar__userpic">
-										<img src="../assets/app/media/img/users/user4.jpg"
+										<img src="{{asset('assets/app/media/img/users/300_11.jpg')}}"
 											class="m--img-rounded m--marginless m--img-centered"
 											style="width: 40px!important;" alt="" />
 									</span>
+									<span class="m-topbar__username text-white ml-1">
+										{{ strtoupper( Auth::user()->name)}}
+									</span>
 								</a>
-								<span class="m-topbar__username text-white">
-									John doe
-								</span>
 								<div class="m-dropdown__wrapper">
 									<span
 										class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
@@ -235,7 +235,7 @@
 											style="background: url(../assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
 											<div class="m-card-user m-card-user--skin-dark">
 												<div class="m-card-user__pic">
-													<img src="../assets/app/media/img/users/user4.jpg"
+													<img src="{{asset('assets/app/media/img/users/300_11.jpg')}}"
 														class="m--img-rounded m--marginless" alt="" />
 												</div>
 												<div class="m-card-user__details">
@@ -278,10 +278,14 @@
 													</li>
 													<li class="m-nav__separator m-nav__separator--fit"></li>
 													<li class="m-nav__item">
-														<a href="../snippets/pages/user/login-1.html"
+														<a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
 															class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
 															Logout
 														</a>
+														
+														<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+															{{ csrf_field() }}
+														</form>
 													</li>
 												</ul>
 											</div>
@@ -314,6 +318,7 @@
 		<!-- end::Header -->
 
 		<div class="m-grid__item m-grid__item--fluid" style="padding-top: 100px">
+			<div class="px-5">@include('layouts.messages')</div>
 			@yield('content')
 		</div>
 	</div>

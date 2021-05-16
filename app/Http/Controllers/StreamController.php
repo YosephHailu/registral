@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\Stream;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StreamController extends Controller
@@ -18,7 +19,7 @@ class StreamController extends Controller
         //
         $streams = Stream::query();
 
-        return view('stream.streams')->with('streams', $streams->get());
+        return view('stream.streams')->with(['streams' => $streams->get()]);
     }
 
     /**
@@ -29,8 +30,9 @@ class StreamController extends Controller
     public function create()
     {
         $departments = Department::all();
+        $coordinators = User::all();
         
-        return view('stream.ce-stream')->with('departments', $departments);
+        return view('stream.ce-stream')->with('departments', $departments)->with('coordinators', $coordinators);
     }
 
     /**
@@ -77,8 +79,9 @@ class StreamController extends Controller
     public function edit(Stream $stream)
     {
         $departments = Department::all();
+        $coordinators = User::all();
         
-        return view('stream.ce-stream')->with('stream', $stream)->with('departments', $departments);
+        return view('stream.ce-stream')->with('stream', $stream)->with('departments', $departments)->with('coordinators', $coordinators);
     }
 
     /**
