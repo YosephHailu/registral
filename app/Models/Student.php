@@ -70,6 +70,11 @@ class Student extends Authenticatable
         return $this->belongsTo(Semester::class);
     }
     
+    public function section(): BelongsTo
+    {
+        return $this->belongsTo(Section::class);
+    }
+    
     /**
      * Get the user that owns the Appointment
      *

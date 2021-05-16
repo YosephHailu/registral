@@ -101,6 +101,9 @@ Route::get('section/{teacherSection}/students', [App\Http\Controllers\TeacherSec
 Route::resource('assessment', App\Http\Controllers\AssessmentController::class, ['names' => "assessment"]);
 Route::get('assessment/{teacherSection}/create', [App\Http\Controllers\AssessmentController::class, 'create'])->name('assessment.create');
 
-
 //Student assessments
 Route::post('update-mark/{studentAssessment}', [App\Http\Controllers\StudentAssessmentController::class, 'updateMark'])->name('update-student-mark');
+
+
+//Reports
+Route::get('student-grade-report', [App\Http\Controllers\ReportController::class, 'studentGrade'])->name('student.grade.report');

@@ -95,7 +95,7 @@
                         <label>
                             Academic year <span class="text-danger"> * </span> :
                         </label>
-                        <select class="form-control  m-select2" name="teacher_id" id="academicYear">
+                        <select class="form-control  m-select2" name="academic_year_id" id="academicYear">
                             <option value="">
                                 Select academic year
                             </option>
@@ -162,6 +162,7 @@
                     $('#sectionSelect').append(options);
                 });
                 $('#sectionSelect').select2();
+                $('#sectionSelect').trigger('change');
             });
         });
     </script>

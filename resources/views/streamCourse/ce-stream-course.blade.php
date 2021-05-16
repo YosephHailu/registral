@@ -121,7 +121,7 @@
                         <label>
                             Credit hour <span class="text-danger"> * </span> :
                         </label>
-                        <input type="text" class="form-control m-input" name="credit_hour"
+                        <input type="number" class="form-control m-input" name="credit_hour"
                             value="{{ $streamCourse->credit_hour ?? old('credit_hour') }}" placeholder="Enter stream credit_hour">
                         <span class="m-form__help">
                             e.g Enter credit hours
@@ -131,7 +131,7 @@
                         <label>
                             Ects <span class="text-danger"> * </span> :
                         </label>
-                        <input type="text" class="form-control m-input" name="ects"
+                        <input type="number" class="form-control m-input" name="ects"
                             value="{{ $streamCourse->ects ?? old('ects') }}"
                             placeholder="Enter ects value">
                     </div>

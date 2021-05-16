@@ -102,7 +102,7 @@
                         </label>
                         <input type="number" class="form-control m-input" name="total_year"
                             value="{{ $stream->total_year ?? old('total_year') }}"
-                            placeholder="Enter total_year name">
+                            placeholder="Enter stream total year">
                     </div>
                 </div>
             </div>
