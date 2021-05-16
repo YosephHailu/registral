@@ -15,16 +15,11 @@
 						</div>
 						<div class="m-login__title">
 							<h3>
-								JOIN OUR GREAT METRO COMMUNITY GET FREE ACCOUNT
+								ADDIS ABABA UNIVERSITY
 							</h3>
 						</div>
 						<div class="m-login__desc">
-							Amazing Stuff is Lorem Here.Grownng Team
-						</div>
-						<div class="m-login__form-action">
-							<a href="{{ route('student.register')}}" class="btn btn-outline-focus m-btn--pill">
-								Get An Account
-							</a>
+							{{-- Amazing Stuff is Lorem Here.Grownng Team --}}
 						</div>
 					</div>
 				</div>

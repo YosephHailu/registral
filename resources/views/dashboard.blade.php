@@ -1,3 +1,2 @@
-@extends('layouts.app')
+@extends('layouts.staff')
 
-<!-- @section('content') -->
